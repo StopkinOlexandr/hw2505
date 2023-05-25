@@ -26,3 +26,18 @@ async function getIp() {
 }
 
 getIp();
+
+
+async function getIp2() {
+    const response = await fetch("http://ip-api.com/json/");
+    // const response = await fetch("https://api.ipify.org?format=json");
+    const obj = await response.json();
+    // console.log(obj);
+    const { city, lat, lon } = obj;
+    console.log(city);
+    // console.log(ip);
+    console.log(lat);
+    console.log(lon);
+    getWeather(city, lat, lon);
+}
+getIp2();
